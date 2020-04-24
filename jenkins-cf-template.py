@@ -2,7 +2,7 @@
 from ipaddress import ip_network
 from ipify import get_ip
 
-from troposphere import(
+from troposphere import (
     Base64,
     ec2,
     GetAtt,
@@ -13,7 +13,7 @@ from troposphere import(
     Template,
 )
 
-from tropsphere.iam import(
+from troposphere.iam import (
     InstanceProfile,
     PolicyType as IAMPolicy,
     Role,
@@ -106,7 +106,7 @@ t.add_resource(ec2.Instance(
     SecurityGroups=[Ref("SecurityGroup")],
     KeyName=Ref("KeyPair"),
     UserData=ud,
-    InstanceProfile=Ref("InstanceProfile"),
+    IamInstanceProfile=Ref("InstanceProfile"),
 ))
 
 t.add_output(Output(
